@@ -1,0 +1,40 @@
+﻿<Window x:Class="SistemadeVendas.Views.Produtolistwind"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SistemadeVendas.Views"
+        mc:Ignorable="d"
+        Title="Produtolistwind" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="47"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu IsMainMenu="True">
+            <MenuItem Header="_Arquivo">
+                <MenuItem Header="_Novo"  Click="MenuItem_Novo_Click" Checked="MenuItem_Novo_Click"/>
+                <MenuItem Header="Sair" InputGestureText="Ctrl+E" />
+            </MenuItem>
+        </Menu>
+
+        <StackPanel Grid.Row="1"/>
+
+        <DataGrid Grid.Row="1" Margin="5" x:Name="dataGrid" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Grid.RowSpan="2">
+            <DataGrid.Columns>
+           
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nomep}"/>
+                <DataGridTextColumn Header="Marca" Binding="{Binding Marca}"/>
+                <DataGridTextColumn Header="Valor" Binding="{Binding ValorVenda, ConverterCulture='pt-BR', StringFormat=C}"/>
+                <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}"/>
+
+                
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
+

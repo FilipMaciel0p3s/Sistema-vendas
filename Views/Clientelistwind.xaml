@@ -1,0 +1,53 @@
+﻿<Window x:Class="SistemadeVendas.Views.Clientelistwind"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SistemadeVendas.Views"
+        mc:Ignorable="d"
+        Title="Lista Clientes" Height="390.379" Width="1072.555">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="47"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu IsMainMenu="True">
+            <MenuItem Header="_Arquivo">
+                <MenuItem Header="_Novo"  Click="MenuItem_Novo_Click" Checked="MenuItem_Novo_Click"/>
+                <MenuItem Header="Sair" InputGestureText="Ctrl+E" />
+            </MenuItem>
+        </Menu>
+
+        <StackPanel Grid.Row="1"/>
+
+        <DataGrid Grid.Row="1" Margin="5" x:Name="dataGrid" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Grid.RowSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
+                <DataGridTextColumn Header="CPF" Binding="{Binding CPF}"/>
+                <DataGridTextColumn Header="E-mail" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Celular" Binding="{Binding Celular}"/>
+                <DataGridTextColumn Header="Telefone" Binding="{Binding telefone}"/>
+                <DataGridTextColumn Header="Logradouro" Binding="{Binding Endereco.Rua}"/>
+                <DataGridTextColumn Header="Numero" Binding="{Binding Endereco.Numero}"/>
+                <DataGridTextColumn Header="Baiiro" Binding="{Binding Endereco.Bairro}"/>
+                <DataGridTextColumn Header="Cidade" Binding="{Binding Endereco.Cidade}"/>
+                <DataGridTextColumn Header="Estado" Binding="{Binding Endereco.Estado}"/>
+                <DataGridTemplateColumn Header="Ações">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Width="90" Height="20" ToolTip="Visualizar Registro" Margin="0 0 5 0" Click="Button_Update_Click"  Content="Editar"/>
+                                <Button Width="90" Height="20" ToolTip="Excluir Registro" Click="Button_Delete_Click" Content="Deletar"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
+
